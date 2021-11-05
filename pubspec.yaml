@@ -15,7 +15,7 @@ dependencies:
     git: https://github.com/nightmare-space/app_manager
   cupertino_icons: ^1.0.2
   file_manager_view:
-    path: /Users/nightmare/Desktop/nightmare-space/file_manager_view
+    git: https://github.com/nightmare-space/file_manager_view.git
   get: ^4.1.3
 
 dev_dependencies:
