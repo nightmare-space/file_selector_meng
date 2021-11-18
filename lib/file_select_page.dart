@@ -136,10 +136,13 @@ class _FileSelectPageState extends State<FileSelectPage> {
                             in clipboardController.checkNodes) {
                           paths.add(value.path);
                         }
-                        CheckController checkContainer = Get.find();
-                        for (AppInfo value in checkContainer.check) {
-                          paths.add(value.apkPath);
-                        }
+                        // TODO bug
+                        try {
+                          CheckController checkContainer = Get.find();
+                          for (AppInfo value in checkContainer.check) {
+                            paths.add(value.apkPath);
+                          }
+                        } catch (e) {}
                         Navigator.of(context).pop(paths);
                       },
                       borderRadius: BorderRadius.circular(10),
