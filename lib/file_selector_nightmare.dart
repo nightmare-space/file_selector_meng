@@ -8,7 +8,10 @@ class FileSelector {
     List<String> result = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) {
-          return FileSelectPage();
+          return Theme(
+            data: Theme.of(context),
+            child: FileSelectPage(),
+          );
         },
       ),
     );

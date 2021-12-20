@@ -142,6 +142,7 @@ class _FileSelectPageState extends State<FileSelectPage> {
                           for (AppInfo value in checkContainer.check) {
                             paths.add(value.apkPath);
                           }
+                          checkContainer.clearCheck();
                         } catch (e) {}
                         Navigator.of(context).pop(paths);
                       },
@@ -224,7 +225,7 @@ class _DetailsTabState extends State<DetailsTab> {
           },
           child: Container(
             decoration: BoxDecoration(
-              color: isCheck ? accent : accent.withOpacity(0.1),
+              color: isCheck ? accent : accent.withOpacity(0.2),
               borderRadius: BorderRadius.circular(12),
             ),
             padding: const EdgeInsets.symmetric(

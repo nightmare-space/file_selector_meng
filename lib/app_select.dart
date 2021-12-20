@@ -1,4 +1,6 @@
 import 'package:app_manager/app_manager.dart';
+import 'package:app_manager/controller/app_manager_controller.dart';
+import 'package:app_manager/controller/check_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:global_repository/src/utils/screen_util.dart';
@@ -13,7 +15,25 @@ class AppSelect extends StatefulWidget {
 }
 
 class _AppSelectState extends State<AppSelect> {
+  AppManagerController controller = Get.put((AppManagerController()));
   String filter = '';
+
+  @override
+  void initState() {
+    super.initState();
+    Get.put(CheckController());
+    Get.put(IconController());
+    controller.getUserApp().then((_) {
+      controller.cacheUserIcon();
+    });
+  }
+  @override
+  void dispose() {
+    Get.delete<AppManagerController>();
+    Get.delete<CheckController>();
+    Get.delete<IconController>();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,13 +48,13 @@ class _AppSelectState extends State<AppSelect> {
           ),
         ),
         Expanded(
-          child: GetBuilder<AppSelectController>(
-            init: AppSelectController(),
+          child: GetBuilder<AppManagerController>(
+            init: AppManagerController(),
             autoRemove: false,
             builder: (context) {
               return AppListPage(
                 filter: filter,
-                appList: context.apps,
+                appList: context.userApps,
               );
             },
           ),
