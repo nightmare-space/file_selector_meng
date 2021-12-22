@@ -25,8 +25,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-
-dependency_overrides:
-  app_manager:
-    path: /Users/nightmare/Desktop/nightmare-space/app_manager
