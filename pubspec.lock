@@ -20,17 +20,19 @@ packages:
   app_manager:
     dependency: "direct main"
     description:
-      path: "/Users/nightmare/Desktop/nightmare-space/app_manager"
-      relative: false
-    source: path
-    version: "1.0.0+1"
-  apputils:
-    dependency: transitive
-    description:
       path: "."
       ref: HEAD
-      resolved-ref: b72ec09f7ee91a646e2de0af27146617b68b26e5
-      url: "https://github.com/nightmare-space/apputils"
+      resolved-ref: "2546b13bf4037b2953b5a6bb8365da54bdd26070"
+      url: "https://github.com/nightmare-space/app_manager"
+    source: git
+    version: "1.0.0+1"
+  applib_util:
+    dependency: transitive
+    description:
+      path: applib_util
+      ref: HEAD
+      resolved-ref: "9627435c21ac713075bc52280bad4c6719ec1aff"
+      url: "https://github.com/nightmare-space/applib"
     source: git
     version: "0.0.1"
   async:
@@ -39,7 +41,7 @@ packages:
       name: async
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.8.1"
+    version: "2.8.2"
   boolean_selector:
     dependency: transitive
     description:
@@ -53,7 +55,7 @@ packages:
       name: characters
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   charcode:
     dependency: transitive
     description:
@@ -89,15 +91,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.3"
-  dart_pty:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "2b287536a9037c30f1c44952fa4f669db8e496e4"
-      url: "https://github.com/Termare/dart_pty"
-    source: git
-    version: "0.0.3"
   dio:
     dependency: transitive
     description:
@@ -119,13 +112,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0"
-  ffi:
-    dependency: transitive
-    description:
-      name: ffi
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.1.2"
   file_manager_view:
     dependency: "direct main"
     description:
@@ -209,7 +195,14 @@ packages:
       name: matcher
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.12.10"
+    version: "0.12.11"
+  material_color_utilities:
+    dependency: transitive
+    description:
+      name: material_color_utilities
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.3"
   meta:
     dependency: transitive
     description:
@@ -273,15 +266,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.2"
-  pseudo_terminal_utils:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "49b7179b258106de12fd4bbeee746812c782670d"
-      url: "https://github.com/Termare/pseudo_terminal_utils"
-    source: git
-    version: "0.0.1"
   shortcut:
     dependency: transitive
     description:
@@ -344,7 +328,7 @@ packages:
       name: test_api
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.4.2"
+    version: "0.4.8"
   typed_data:
     dependency: transitive
     description:
@@ -358,14 +342,7 @@ packages:
       name: vector_math
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.1.0"
-  win32:
-    dependency: transitive
-    description:
-      name: win32
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "2.2.10"
+    version: "2.1.1"
   xml:
     dependency: transitive
     description:

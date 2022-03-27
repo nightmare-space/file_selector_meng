@@ -23,10 +23,9 @@ class _AppSelectState extends State<AppSelect> {
     super.initState();
     Get.put(CheckController());
     Get.put(IconController());
-    controller.getUserApp().then((_) {
-      controller.cacheUserIcon();
-    });
+    controller.getUserApp();
   }
+
   @override
   void dispose() {
     Get.delete<AppManagerController>();
@@ -34,6 +33,7 @@ class _AppSelectState extends State<AppSelect> {
     Get.delete<IconController>();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
