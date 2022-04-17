@@ -25,3 +25,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+dependency_overrides:
+  global_repository:
+    path: /Users/nightmare/Desktop/nightmare-space/global_repository
+  file_manager_view:
+    path: /Users/nightmare/Desktop/nightmare-space/file_manager_view

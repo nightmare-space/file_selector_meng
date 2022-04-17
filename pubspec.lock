@@ -115,11 +115,9 @@ packages:
   file_manager_view:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "8609fac05905469a0e8a3114a9cc1fddd86cc62b"
-      url: "https://github.com/nightmare-space/file_manager_view.git"
-    source: git
+      path: "/Users/nightmare/Desktop/nightmare-space/file_manager_view"
+      relative: false
+    source: path
     version: "1.0.0+1"
   flutter:
     dependency: "direct main"
@@ -162,11 +160,9 @@ packages:
   global_repository:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: bfa05232675d315b412ce69b6b0147054461649c
-      url: "https://github.com/nightmare-space/global_repository"
-    source: git
+      path: "/Users/nightmare/Desktop/nightmare-space/global_repository"
+      relative: false
+    source: path
     version: "0.0.1"
   hive:
     dependency: transitive
@@ -276,12 +272,10 @@ packages:
   signale:
     dependency: transitive
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: c64399b18aa1427c9366bec41662f9d240cc9eda
-      url: "https://github.com/Nightmare-MY/signale"
-    source: git
-    version: "0.0.6"
+      name: signale
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.7"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -315,6 +309,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.0"
+  synchronized:
+    dependency: transitive
+    description:
+      name: synchronized
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.0+2"
   term_glyph:
     dependency: transitive
     description:
