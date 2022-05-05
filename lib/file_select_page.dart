@@ -3,6 +3,7 @@ import 'package:app_manager/controller/check_controller.dart';
 import 'package:file_manager_view/config/config.dart';
 import 'package:file_manager_view/controller/clipboard_controller.dart';
 import 'package:file_manager_view/core/io/interface/io.dart';
+import 'package:file_manager_view/file_manager_view.dart';
 import 'package:file_manager_view/widgets/file_manager_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -90,10 +91,11 @@ class _FileSelectPageState extends State<FileSelectPage> {
           Expanded(
             child: PageView(
               controller: pageController,
-              children: [
-                FileManagerWindow(
+              children: const [
+                FileManager(
+                  address: 'http://127.0.0.1:20000',
+                  path: '/sdcard',
                   windowType: WindowType.selectFile,
-                  initPath: '/storage/emulated/0',
                 ),
                 AppSelect(),
               ],
