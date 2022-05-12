@@ -96,6 +96,7 @@ class _FileSelectPageState extends State<FileSelectPage> {
                   address: 'http://127.0.0.1:20000',
                   path: '/sdcard',
                   windowType: WindowType.selectFile,
+                  usePackage: true,
                 ),
                 AppSelect(),
               ],
