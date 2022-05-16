@@ -4,13 +4,18 @@ import 'directory_select_page.dart';
 import 'file_select_page.dart';
 
 class FileSelector {
-  static Future<List<String>> pick(BuildContext context) async {
+  static Future<List<String>> pick(
+    BuildContext context, {
+    String path,
+  }) async {
     List<String> result = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) {
           return Theme(
             data: Theme.of(context),
-            child: FileSelectPage(),
+            child: FileSelectPage(
+              path: path,
+            ),
           );
         },
       ),

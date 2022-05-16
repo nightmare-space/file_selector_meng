@@ -15,13 +15,14 @@ import 'app_select.dart';
 /// Created By Nightmare on 2021/7/20
 /// 文件选择组件
 class FileSelectPage extends StatefulWidget {
-  FileSelectPage({Key key}) : super(key: key) {
+  FileSelectPage({Key key, this.path}) : super(key: key) {
     if (RuntimeEnvir.packageName != Config.packageName &&
         !GetPlatform.isDesktop) {
       // 如果这个项目是独立运行的，那么RuntimeEnvir.packageName会在main函数中被设置成Config.packageName
       Config.flutterPackage = 'packages/file_manager_view/';
     }
   }
+  final String path;
 
   @override
   _FileSelectPageState createState() => _FileSelectPageState();
@@ -91,14 +92,14 @@ class _FileSelectPageState extends State<FileSelectPage> {
           Expanded(
             child: PageView(
               controller: pageController,
-              children: const [
+              children: [
                 FileManager(
                   address: 'http://127.0.0.1:20000',
-                  path: '/sdcard',
+                  path: widget.path ?? '/sdcard',
                   windowType: WindowType.selectFile,
                   usePackage: true,
                 ),
-                AppSelect(),
+                const AppSelect(),
               ],
             ),
           ),
