@@ -1,7 +1,10 @@
 import 'package:file_manager_view/config/config.dart';
 import 'package:file_manager_view/controller/clipboard_controller.dart';
+import 'package:file_manager_view/v2/file_manager.dart';
+import 'package:file_manager_view/widgets/file_manager_controller.dart';
 import 'package:file_manager_view/widgets/file_manager_window.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:global_repository/global_repository.dart';
 
@@ -26,9 +29,9 @@ class _DirectorySelectPageState extends State<DirectorySelectPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xfff5f5f7),
       appBar: AppBar(
-        brightness: Brightness.light,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: NiIconButton(
@@ -48,9 +51,11 @@ class _DirectorySelectPageState extends State<DirectorySelectPage> {
       body: Column(
         children: [
           Expanded(
-            child: FileManagerWindow(
-              windowType: WindowType.selectDirectory,
-              initPath: '/storage/emulated/0',
+            child: FileManager(
+              address: 'http://127.0.0.1:20000',
+              path: '/sdcard',
+              windowType: WindowType.selectFile,
+              usePackage: true,
             ),
           ),
           SizedBox(
@@ -85,8 +90,9 @@ class _DirectorySelectPageState extends State<DirectorySelectPage> {
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       onTap: () {
+                        FileManagerController controller = Get.find();
                         Navigator.of(context).pop(
-                          clipboardController.currentDir,
+                          controller.dirPath,
                         );
                       },
                       borderRadius: BorderRadius.circular(10),

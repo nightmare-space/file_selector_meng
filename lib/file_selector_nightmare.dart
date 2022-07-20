@@ -27,7 +27,10 @@ class FileSelector {
     String result = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) {
-          return DirectorySelectPage();
+          return Theme(
+            data: Theme.of(context),
+            child: DirectorySelectPage(),
+          );
         },
       ),
     );
