@@ -15,14 +15,14 @@ import 'app_select.dart';
 /// Created By Nightmare on 2021/7/20
 /// 文件选择组件
 class FileSelectPage extends StatefulWidget {
-  FileSelectPage({Key key, this.path}) : super(key: key) {
+  FileSelectPage({Key? key, this.path}) : super(key: key) {
     if (RuntimeEnvir.packageName != Config.packageName &&
         !GetPlatform.isDesktop) {
       // 如果这个项目是独立运行的，那么RuntimeEnvir.packageName会在main函数中被设置成Config.packageName
       Config.flutterPackage = 'packages/file_manager_view/';
     }
   }
-  final String path;
+  final String? path;
 
   @override
   _FileSelectPageState createState() => _FileSelectPageState();
@@ -143,8 +143,8 @@ class _FileSelectPageState extends State<FileSelectPage> {
                         // TODO bug
                         try {
                           CheckController checkContainer = Get.find();
-                          for (AppInfo value in checkContainer.check) {
-                            paths.add(value.apkPath);
+                          for (AppInfo? value in checkContainer.check) {
+                            paths.add(value!.apkPath);
                           }
                           checkContainer.clearCheck();
                         } catch (e) {}
@@ -183,28 +183,28 @@ final List<String> tabs = [
 
 class DetailsTab extends StatefulWidget {
   const DetailsTab({
-    Key key,
+    Key? key,
     this.value,
     this.onChange,
     this.controller,
   }) : super(key: key);
-  final int value;
-  final void Function(int value) onChange;
-  final PageController controller;
+  final int? value;
+  final void Function(int value)? onChange;
+  final PageController? controller;
 
   @override
   _DetailsTabState createState() => _DetailsTabState();
 }
 
 class _DetailsTabState extends State<DetailsTab> {
-  int _value;
+  int? _value;
   @override
   void initState() {
     super.initState();
     _value = widget.value;
-    widget.controller.addListener(() {
-      if (widget.controller.page.round() != _value) {
-        _value = widget.controller.page.round();
+    widget.controller!.addListener(() {
+      if (widget.controller!.page!.round() != _value) {
+        _value = widget.controller!.page!.round();
         setState(() {});
       }
     });
@@ -225,7 +225,7 @@ class _DetailsTabState extends State<DetailsTab> {
       children.add(
         GestureDetector(
           onTap: () {
-            widget.onChange(i);
+            widget.onChange!(i);
           },
           child: Container(
             decoration: BoxDecoration(

@@ -15,7 +15,7 @@ class AppSelectController extends GetxController {
   Future<void> getAppList() async {
     Get.put(CheckController());
     apps = await AppUtils.getAllAppInfo(
-      appChannel: AppManager.globalInstance.appChannel,
+      appChannel: AppManager.globalInstance.appChannel!,
     );
     update();
   }

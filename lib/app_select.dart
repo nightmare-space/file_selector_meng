@@ -8,7 +8,7 @@ import 'package:global_repository/src/utils/screen_util.dart';
 import 'app_select_controller.dart';
 
 class AppSelect extends StatefulWidget {
-  const AppSelect({Key key}) : super(key: key);
+  const AppSelect({Key? key}) : super(key: key);
 
   @override
   _AppSelectState createState() => _AppSelectState();
