@@ -66,111 +66,113 @@ class _FileSelectPageState extends State<FileSelectPage> {
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-              left: 6.w,
-            ),
-            child: DetailsTab(
-              value: page,
-              controller: pageController,
-              onChange: (value) {
-                page = value;
-                setState(() {});
-                pageController.animateToPage(
-                  page,
-                  duration: const Duration(
-                    milliseconds: 200,
-                  ),
-                  curve: Curves.ease,
-                );
-              },
-            ),
-          ),
-          Expanded(
-            child: PageView(
-              controller: pageController,
-              children: [
-                FileManager(
-                  address: 'http://127.0.0.1:20000',
-                  path: widget.path ?? '/sdcard',
-                  windowType: WindowType.selectFile,
-                  usePackage: true,
-                ),
-                const AppSelect(),
-              ],
-            ),
-          ),
-          SizedBox(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Material(
-                    color: Color(0xffebebed),
-                    borderRadius: BorderRadius.circular(10),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        width: 160,
-                        height: 42,
-                        decoration: BoxDecoration(),
-                        child: Center(
-                          child: Text(
-                            '取消',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                left: 6.w,
+              ),
+              child: DetailsTab(
+                value: page,
+                controller: pageController,
+                onChange: (value) {
+                  page = value;
+                  setState(() {});
+                  pageController.animateToPage(
+                    page,
+                    duration: const Duration(
+                      milliseconds: 200,
                     ),
+                    curve: Curves.ease,
+                  );
+                },
+              ),
+            ),
+            Expanded(
+              child: PageView(
+                controller: pageController,
+                children: [
+                  FileManager(
+                    address: 'http://127.0.0.1:9000',
+                    path: widget.path ?? '/sdcard',
+                    windowType: WindowType.selectFile,
+                    usePackage: true,
                   ),
-                  Material(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                    child: InkWell(
-                      onTap: () {
-                        List<String> paths = [];
-                        for (FileEntity value
-                            in clipboardController.checkNodes) {
-                          paths.add(value.path);
-                        }
-                        // TODO bug
-                        try {
-                          CheckController checkContainer = Get.find();
-                          for (AppInfo? value in checkContainer.check) {
-                            paths.add(value!.apkPath);
-                          }
-                          checkContainer.clearCheck();
-                        } catch (e) {}
-                        Navigator.of(context).pop(paths);
-                      },
+                  const AppSelect(),
+                ],
+              ),
+            ),
+            SizedBox(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Material(
+                      color: Color(0xffebebed),
                       borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        width: 160,
-                        height: 42,
-                        child: Center(
-                          child: Text(
-                            '确定',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          width: 160,
+                          height: 42,
+                          decoration: BoxDecoration(),
+                          child: Center(
+                            child: Text(
+                              '取消',
+                              style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    Material(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.circular(10),
+                      child: InkWell(
+                        onTap: () {
+                          List<String> paths = [];
+                          for (FileEntity value
+                              in clipboardController.checkNodes) {
+                            paths.add(value.path);
+                          }
+                          // TODO bug
+                          try {
+                            CheckController checkContainer = Get.find();
+                            for (AppInfo? value in checkContainer.check) {
+                              paths.add(value!.apkPath);
+                            }
+                            checkContainer.clearCheck();
+                          } catch (e) {}
+                          Navigator.of(context).pop(paths);
+                        },
+                        borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          width: 160,
+                          height: 42,
+                          child: Center(
+                            child: Text(
+                              '确定',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
